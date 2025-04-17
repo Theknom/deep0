@@ -1,6 +1,8 @@
 # coding: utf-8
 import sys, os
-sys.path.append(os.pardir)  # 親ディレクトリのファイルをインポートするための設定
+# sys.path.append(os.pardir)  # 親ディレクトリのファイルをインポートするための設定
+# sys.path.append(os.path.join(os.pardir, os.pardir))
+sys.path.append('/root/work/deep0') 
 import numpy as np
 import matplotlib.pyplot as plt
 from dataset.mnist import load_mnist
@@ -10,11 +12,16 @@ from Two_layer_net import TwoLayerNet
 (x_train, t_train), (x_test, t_test) = load_mnist(normalize=True, one_hot_label=True)
 
 network = TwoLayerNet(input_size=784, hidden_size=50, output_size=10)
+# network = TwoLayerNet(input_size=784, hidden_size=100, output_size=10)
+# network = TwoLayerNet(input_size=784, hidden_size=500, output_size=10)
 
 iters_num = 10000  # 繰り返しの回数を適宜設定する
 train_size = x_train.shape[0]
 batch_size = 100
 learning_rate = 0.1
+# learning_rate = 0.01
+# learning_rate = 0.001
+# learning_rate = 1.0
 
 train_loss_list = []
 train_acc_list = []
